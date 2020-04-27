@@ -4,10 +4,17 @@ from lxml import etree
 import re
 import threading
 import time
+'''
+最终保存为漫画名+链接
 
+需要评的自己改下匹配吧
+
+
+'''
 
 
 def GetHtml():
+    //处理第一个页面
     url="https://www.dmzj.com/rank"
     headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"}
     r=requests.get(url=url,headers=headers,)
@@ -15,6 +22,7 @@ def GetHtml():
     return r.text
 
 def html_work():
+    //页面里面匹配小链接并且传递
     html=GetHtml()
     # bs=BeautifulSoup(html,"html.parser")
     html=etree.HTML(html)
@@ -25,6 +33,7 @@ def html_work():
 
 
 def link_Splicing(url):
+    //拼接
     new_url="https://www.dmzj.com"+str(url)
     link_tow_Splicing(new_url)
 
@@ -34,6 +43,7 @@ def link_Splicing(url):
 
 
 def link_tow_Splicing(url):
+    //第二次处理
     # print("接受到的url是",url)
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36"}
@@ -59,6 +69,7 @@ def link_tow_Splicing(url):
 
 
 def new_page(url):
+    //re匹配保存
     url = "https://www.dmzj.com" + str(url)
 
     headers = {
