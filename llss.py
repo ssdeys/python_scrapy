@@ -66,8 +66,10 @@ class llss:
                         data="magnet:?xt=urn:btih:"+cl
                      # f.write(title+","+data+"\n")
                         a=title,data,"url is ",i
-                        f.write(str(title)+str(data)+"\n")
-
+                        z=str(title).replace("[","")
+                        x=z.replace("]","")
+                        c=x.replace("'","")
+                        f.write(c+"  "+str(data)+"url "+i+"\n")
 
 
 
