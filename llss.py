@@ -69,7 +69,7 @@ class llss:
                         z=str(title).replace("[","")
                         x=z.replace("]","")
                         c=x.replace("'","")
-                        f.write(c+"  "+str(data)+"url "+i+"\n")
+                        f.write(c+"  "+str(data)+"   url "+i+"\n")
 
 
 
